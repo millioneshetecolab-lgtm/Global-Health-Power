@@ -1,0 +1,11 @@
+pandas>=2.0.0
+numpy
+xarray
+netCDF4
+matplotlib
+seaborn
+pymc>=5.0.0
+arviz
+cdsapi
+requests
+jupyter
