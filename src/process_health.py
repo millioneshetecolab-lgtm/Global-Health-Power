@@ -1,34 +1,18 @@
 import pandas as pd
-import os
 
 def clean_gbd_data():
-    # Define paths
-    raw_path = 'data/raw/IHME-GBD_2019_DATA.csv'  # Make sure this matches your actual filename
-    processed_path = 'data/processed/gbd_clean_nordic.csv'
+    # 1. Load the raw data (Adjust filename to match your download)
+    # The 'header=0' argument implies the first row contains column names
+    df = pd.read_csv('data/raw/IHME-GBD_2019_DATA.csv')
 
-    # Check if raw file exists
-    if not os.path.exists(raw_path):
-        print(f"Error: Raw file not found at {raw_path}")
-        print("Please place the downloaded GBD CSV in the data/raw/ folder.")
-        return
+    print(f"Raw shape: {df.shape}")
 
-    # 1. Load the raw data
-    print(f"Loading raw data from {raw_path}...")
-    df = pd.read_csv(raw_path)
-
-    # 2. Filter for columns we need
-    # Adjust these column names if your CSV header is different
+    # 2. Filter for columns we actually need
+    # 'val' is the value (Deaths), 'upper' and 'lower' are the uncertainty intervals
     keep_cols = ['location_name', 'year', 'val', 'upper', 'lower']
-    
-    # Safety check: do these columns exist?
-    missing_cols = [c for c in keep_cols if c not in df.columns]
-    if missing_cols:
-        print(f"Warning: Columns {missing_cols} not found. Available columns: {df.columns}")
-        return
-
     df_clean = df[keep_cols].copy()
 
-    # 3. Rename columns
+    # 3. Rename columns to be "Coder Friendly" (No spaces, lowercase)
     df_clean = df_clean.rename(columns={
         'location_name': 'country',
         'val': 'deaths_per_100k',
@@ -36,15 +20,20 @@ def clean_gbd_data():
         'lower': 'deaths_lower'
     })
 
-    # 4. Filter for Nordics (just in case the download included others)
+    # 4. The "0.1%" Move: Standardize Country Names
+    # GBD uses "Norway", but standard libraries might expect "Norway" or "NO".
+    # We ensure specific Nordic filtering here just in case.
     nordic_countries = ['Norway', 'Sweden', 'Finland', 'Denmark']
     df_clean = df_clean[df_clean['country'].isin(nordic_countries)]
 
-    # 5. Save processed data
-    os.makedirs('data/processed', exist_ok=True)
-    df_clean.to_csv(processed_path, index=False)
-    print(f"Success! Processed data saved to {processed_path}")
+    # 5. Sanity Check (Print the first few rows to verify)
+    print("Filtered data preview:")
     print(df_clean.head())
+
+    # 6. Save the processed version
+    # distinct from 'raw' to preserve data lineage
+    df_clean.to_csv('data/processed/gbd_clean_nordic.csv', index=False)
+    print("Saved processed data to data/processed/gbd_clean_nordic.csv")
 
 if __name__ == "__main__":
     clean_gbd_data()

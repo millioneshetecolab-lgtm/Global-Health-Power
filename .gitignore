@@ -1,9 +1,17 @@
+# Ignore Data (The entire folder)
+data/
 *.nc
 *.csv
+
+# Ignore Secrets (Just in case you copy them here)
+.env
+*.env
+.cdsapirc
+
+# Python & System Junk
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-.env
-*.env
 .venv/
 venv/
+.DS_Store
