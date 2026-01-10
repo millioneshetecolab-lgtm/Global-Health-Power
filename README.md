@@ -1,12 +1,12 @@
-# Global Health Data Modeling Pipeline (FHI/GBD Proxy)
+# Data Modeling Pipeline (GBD)
 
-**Project Status:** Active Portfolio Proof  
+
 **Author:** Million Eshete (PhD)
 
 ## Overview
 This repository demonstrates a computational workflow for **Global Burden of Disease (GBD)** analysis, designed to mimic key infrastructure requirements of the Future Health Scenarios (FHS) team.
 
-It bridges the gap between **raw climate reanalysis data (ERA5)** and **epidemiological health metrics (IHME/GBD-style CSVs)** using a reproducible Python pipeline.
+It bridges the gap between **raw climate reanalysis data (ERA5)** and **epidemiological health metrics (IHME/GBD)** using a reproducible Python pipeline.
 
 ## Key Capabilities Demonstrated
 This project targets technical competencies relevant to global health modeling work:
