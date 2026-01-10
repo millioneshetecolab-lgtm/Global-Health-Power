@@ -1,7 +1,7 @@
 # GBD-Style Climate-Mortality Modeling Pipeline
 
 **Author:** Million Tesfaye Eshete, PhD  
-**Status:** Active / Portfolio Demonstration
+**Status:** Active 
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -13,7 +13,7 @@ This repository demonstrates a computational workflow designed to mimic the infr
 
 It bridges the gap between **raw climate reanalysis data (ERA5)** and **epidemiological health metrics (IHME/GBD)** using a reproducible Python pipeline. The project serves as a proof-of-concept for handling multidimensional spatiotemporal data and implementing probabilistic mortality forecasting.
 
-## 🚀 Key Competencies Demonstrated
+## 🚀 Key details
 
 This project targets technical competencies relevant to large-scale global health modeling:
 
