@@ -9,13 +9,9 @@
 
 ## 📌 Overview
 
-This repository demonstrates a computational workflow designed to mimic the infrastructure requirements of the **Global Burden of Disease (GBD)** and **Future Health Scenarios (FHS)** teams.
-
-It bridges the gap between **raw climate reanalysis data (ERA5)** and **epidemiological health metrics (IHME/GBD)** using a reproducible Python pipeline. The project serves as a proof-of-concept for handling multidimensional spatiotemporal data and implementing probabilistic mortality forecasting.
+This repository demonstrates a computational workflow. It bridges the gap between **raw climate reanalysis data (ERA5)** and **epidemiological health metrics (IHME/GBD)** using a reproducible Python pipeline. The project serves as a proof-of-concept for handling multidimensional spatiotemporal data and implementing probabilistic mortality forecasting.
 
 ## 🚀 Key details
-
-This project targets technical competencies relevant to large-scale global health modeling:
 
 ### 1. Advanced Data Engineering
 * **NetCDF Ingestion:** Automated ingestion and processing of ERA5 weather data using `xarray` and `dask` for memory-efficient handling of multidimensional arrays.
